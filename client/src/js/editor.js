@@ -37,7 +37,8 @@ export default class {
     // Save the content of the editor when the editor itself loses focus
     this.editor.on('blur', () => {
       console.log('The editor has lost focus');
-      putDb(localStorage.getItem('content'));
+      const content = { content: this.editor.getValue() }; // Wrap the content in an object
+      putDb(content); // Pass the content object to putDb
     });
   }
 }

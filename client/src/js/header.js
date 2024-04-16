@@ -1,10 +1,13 @@
 const header = `
 /*
 _____   _____  __  __  _____   _      __   __
-|_   _| | ____| \ \/ / |_   _| | |     \ \ / /
-  | |   |  _|    \  /    | |   | |      \ V / 
-  | |   | |___   /  \    | |   | |___    | |  
-  |_|   |_____| /_/\_\   |_|   |_____|   |_|  
+T)tttttt E)eeeeee X)    xx T)tttttt L)       Y)    yy 
+   T)    E)        X)  xx     T)    L)        Y)  yy  
+   T)    E)eeeee    X)xx      T)    L)         Y)yy   
+   T)    E)         X)xx      T)    L)          Y)    
+   T)    E)        X)  xx     T)    L)          Y)    
+   T)    E)eeeeee X)    xx    T)    L)llllll    Y)    
+   
      A Simple Text Editor                                         
 */                          
 `;

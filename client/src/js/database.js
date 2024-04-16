@@ -5,37 +5,44 @@ import { openDB } from 'idb';
 //The object store has a keyPath of id and is set to autoIncrement. 
 //This means that each object added to the object store will have a unique id that is automatically generated.
 const initdb = async () =>
-  openDB('jate', 1, {
+  openDB('textly', 1, {
     upgrade(db) {
-      if (db.objectStoreNames.contains('jate')) {
-        console.log('jate database already exists');
+      if (db.objectStoreNames.contains('textly')) {
+        console.log('textly database already exists');
         return;
       }
-      db.createObjectStore('jate', { keyPath: 'id', autoIncrement: true });
-      console.log('jate database created');
+      db.createObjectStore('textly', { keyPath: 'id', autoIncrement: true });
+      console.log('textly database created');
     },
   });
 
   
 // This function takes a content object as an argument and adds it to the object store.
 export const putDb = async (content) => {
-  const db = await openDB('jate', 1);
-  const tx = db.transaction('jate', 'readwrite');
-  const store = tx.objectStore('jate');
-  await store.put(content);
+  const { id, ...contentWithoutId } = content; // Destructure id from content
+  const db = await openDB('textly', 1);
+  const tx = db.transaction('textly', 'readwrite');
+  const store = tx.objectStore('textly');
+  await store.put(contentWithoutId); // Use content without id property
   await tx.done;
 };
 
 
 
+
 // This function retrieves all the content from the object store and returns it as an array.
 export const getDb = async () => {
-  const db = await openDB('jate', 1);
-  const tx = db.transaction('jate', 'readonly');
-  const store = tx.objectStore('jate');
-  const content = await store.getAll();
-  await tx.done;
-  return content;
+  const db = await openDB('textly', 1);
+  const tx = db.transaction('textly', 'readonly');
+  const store = tx.objectStore('textly');
+  const data = await store.getAll();
+  //await tx.done;
+  console.log(data);
+
+  // Assuming content is stored as an object with a 'content' property
+  const content = data.map(item => item.content);
+  
+  return content.join(' ');
 }
 
 //call the initdb function to initialize the database when the file is loaded.
