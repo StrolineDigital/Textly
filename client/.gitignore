@@ -69,3 +69,4 @@ yarn.lock
 *.xslx
 node_modules
 .node_modules
+dist
