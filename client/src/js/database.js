@@ -19,6 +19,7 @@ const initdb = async () =>
   
 // // This function takes a content object as an argument and adds it to the object store.
 export const putDb = async (content) => {
+  console.log('Here is the',content);
   const db = await openDB('textly', 1);
   const tx = db.transaction('textly', 'readwrite');
   const store = tx.objectStore('textly');
