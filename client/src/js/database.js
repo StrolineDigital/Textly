@@ -17,33 +17,26 @@ const initdb = async () =>
   });
 
   
-// This function takes a content object as an argument and adds it to the object store.
+// // This function takes a content object as an argument and adds it to the object store.
 export const putDb = async (content) => {
-  const { id, ...contentWithoutId } = content; // Destructure id from content
   const db = await openDB('textly', 1);
   const tx = db.transaction('textly', 'readwrite');
   const store = tx.objectStore('textly');
-  await store.put(contentWithoutId); // Use content without id property
+  await store.put({ data: content.content, id: 1 }); // Fix content assignment
   await tx.done;
 };
-
-
-
 
 // This function retrieves all the content from the object store and returns it as an array.
 export const getDb = async () => {
   const db = await openDB('textly', 1);
   const tx = db.transaction('textly', 'readonly');
   const store = tx.objectStore('textly');
-  const data = await store.getAll();
-  //await tx.done;
-  console.log(data);
+  const data = await store.get(1);
+  await tx.done;
 
-  // Assuming content is stored as an object with a 'content' property
-  const content = data.map(item => item.content);
-  
-  return content.join(' ');
-}
+  return data ? data.data : null; // Return data.data instead of data
+};
+
 
 //call the initdb function to initialize the database when the file is loaded.
 initdb();
