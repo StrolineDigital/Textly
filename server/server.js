@@ -9,4 +9,5 @@ app.use(express.json());
 
 require('./routes/htmlRoutes')(app);
 
+//Listens for all available connections on the specified port
 app.listen(PORT, '0.0.0.0', () => console.log(`Now listening on port: ${PORT}`));

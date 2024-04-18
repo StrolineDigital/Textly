@@ -11,5 +11,5 @@ T)tttttt E)eeeeee X)    xx T)tttttt L)       Y)    yy
      A Simple Text Editor                                         
 */                          
 `;
-
+//Made a cooler looking header for the text editor
 export { header };

@@ -5,7 +5,10 @@
 
   ## Link To The Live Page
 
+  https://textly-bzmf.onrender.com/
+
   ## Image Of The Final Product
+  ![alt text](textly-bzmf.onrender.com_.png)
     
    ## User Story
   AS A developer
@@ -39,15 +42,14 @@ THEN I should have my static assets pre cached upon loading along with subsequen
 WHEN I deploy to Render
 THEN I should have proper build scripts for a webpack application
   ## Usage
- Once the user has navigated to the deployed web application, they simply...
+ Once the user has navigated to the deployed web application, they simply enter the text of their choosing. Pressing "enter" will start a new line in the editor. If the user clicks a new tab, or clicks the search bar, or any other part of the screen off of the app, the application will "lose focus" which will trigger a save event to occur. When the user exits out of the application and then returns to the application later, the text that was previously entered will be saved in the textly database. The app is also able to be installed locally by clicking the "install" button in the upper left corner of the screen. When installed, the application will create an icon on the desktop which allows the user to use the application locally, and their entered data will persist from the online version into the local copy. 
 
   ## Contributing
-  This project was created by Luke Stroehlein from scratch with help from the BCS for help . Much help was found on the internet including resources such as w3schools and stack overflow.
+  This project was created by Luke Stroehlein with base code from BCS for help. The tutor Charles Puente-Matos helped reduce errors and increase functionality in the application. The tutor Benicio Lopez helped complete debugging errors and helped get the application deployed on Render. Classmate Nathaniel Davis inspected the database.js file during development of the app and made multiple suggestions of how to improve functionality. Much help was found on the internet including resources such as w3schools and stack overflow.
   ## License
   This project is licensed under the MIT license.
   ## Tests
-  The best way to test this project is to simply follow the deployed link and try out the application
-
+  The best way to test this project is to open up Chrome dev tools and head to the console. In the console the data handling can be viewed including a confirmation of data being saved. The database can be inspected using the "application" section of the inspection tool as well as the service worker functions" Please enjoy my application and thank you for having a look! 🤓💻🤖
 
   ## Questions
   If you have any questions, please feel free to reach out to me at strolinedigital@gmail.com. 
